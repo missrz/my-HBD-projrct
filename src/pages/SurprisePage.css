@@ -1,0 +1,120 @@
+.surprise-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 87.8vh;
+  background: linear-gradient(180deg, #000000, #000000);
+  padding: 40px 20px;
+}
+
+.surprise-title {
+  position: absolute;
+  color: #ff4d6d;
+  margin-top: 50px;
+  font-size: 2.5rem;
+  top: 10px;
+  right: 515px;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(255, 0, 80, 0.5);
+}
+
+.card-grid {
+  position: absolute;
+  bottom: 55px;
+  right: 870px;
+  display: flex;
+  gap: 1rem;
+  height: auto; /* Updated to valid height */
+  width: 90px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-text {
+  font-size: 1.8rem;
+  color: #ff4d6d;
+  font-weight: bold;
+  text-align: center;
+  padding: 100px 0;
+}
+
+@keyframes floatAway {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) translateY(-40px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0.9) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.float-away {
+  animation: floatAway 0.7s ease forwards;
+}
+
+.home-btn {
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+}
+
+.home-btn:hover {
+  background: #ff7b9b;
+  transform: scale(1.05);
+}
+/* Only affects cards in Surprise Page */
+.surprise-page .card {
+  position: absolute;
+  right: -70px;
+  top:-450px;
+  width: 620px;   /* smaller width */
+  height: 470px;  /* smaller height */
+  padding: 10px; 
+
+}
+
+.surprise-page .card img {
+  width: 590px;    /* keep full width inside card */
+  height: 450px;  /* scale down image */
+  object-fit: cover;
+}

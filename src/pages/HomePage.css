@@ -1,3 +1,4 @@
+/* General Reset */
 body, html {
   margin: 0;
   padding: 0;
@@ -5,6 +6,8 @@ body, html {
   font-family: "Poppins", sans-serif;
   background-color: #000;
 }
+
+/* Countdown Page */
 .countdown-page {
   background: radial-gradient(circle at center, #1a0000 0%, #000 90%);
   display: flex;
@@ -16,7 +19,7 @@ body, html {
 .count-text {
   font-size: 160px;
   font-weight: 900;
-  color: #000; /* solid dark core */
+  color: #000; 
   letter-spacing: 6px;
   text-align: center;
   position: relative;
@@ -33,7 +36,6 @@ body, html {
     0 0 60px rgba(19, 34, 202, 0.817);
 }
 
-/* Optional subtle reflection/glow depth */
 .count-text::after {
   content: attr(data-text);
   position: absolute;
@@ -44,13 +46,7 @@ body, html {
   filter: blur(2px);
 }
 
-
-
 /* Birthday Page */
-.white-bg {
-  background: #000;
-}
-
 .birthday-page {
   text-align: center;
   height: 100vh;
@@ -59,6 +55,7 @@ body, html {
   justify-content: center;
   align-items: center;
   position: relative;
+  background-color: #000;
 }
 
 .fade-in {
@@ -70,13 +67,12 @@ body, html {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Bunny */
+/* Bunny Image */
 .bunny-static {
   width: 200px;
   height: 200px;
   margin-bottom: 25px;
   object-fit: contain;
-  border: 3px solid transparent;
   border-radius: 50%;
   background: linear-gradient(135deg, #ffcce7, #b5eaff, #d4caff, #f5e4ff);
   background-clip: padding-box;
@@ -89,14 +85,13 @@ body, html {
               0 0 80px rgba(200, 250, 255, 0.4);
 }
 
-/* Gradient Text – 3D Neon Style */
+/* Gradient Text */
 .gradient-text {
   font-size: 42px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 4px;
-  position: relative;
-  color: #000000;
+  color: #000;
   text-shadow:
     0 1px 0 #1eb6e9,
     0 2px 0 #1eb6e9,
@@ -111,7 +106,6 @@ body, html {
   animation: shimmer 3s ease-in-out infinite alternate;
 }
 
-/* Shine Animation */
 @keyframes shimmer {
   0% {
     text-shadow:
@@ -157,10 +151,8 @@ body, html {
   transition: all 0.4s ease;
 }
 
-
 /* Buttons */
-.cute-button,
-.next-button {
+.cute-button {
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border: 2px solid transparent;
@@ -170,6 +162,7 @@ body, html {
   font-weight: 600;
   cursor: pointer;
   position: relative;
+  top: 50px;
   overflow: hidden;
   transition: all 0.4s ease;
   background-image: linear-gradient(135deg, #ffcce7, #b5eaff, #d4caff, #f5e4ff);
@@ -178,9 +171,7 @@ body, html {
   box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
 }
 
-/* Border Gradient */
-.cute-button::before,
-.next-button::before {
+.cute-button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -193,139 +184,60 @@ body, html {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   transition: opacity 0.4s ease, box-shadow 0.4s ease;
+  animation: sparkle 2s infinite ease-in-out;
 }
 
-/* Hover Glow + Sparkle Effect */
-.cute-button:hover::before,
-.next-button:hover::before {
+@keyframes sparkle {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 182, 193, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); }
+}
+
+.cute-button:hover::before {
   opacity: 1;
   box-shadow: 0 0 30px 8px rgba(255, 182, 193, 0.7),
               0 0 40px 12px rgba(255, 105, 180, 0.5);
 }
 
-/* Text Glow */
-.cute-button:hover,
-.next-button:hover {
+.cute-button:hover {
   transform: scale(1.08);
   text-shadow: 0 0 25px rgba(255, 182, 193, 0.8),
                0 0 40px rgba(255, 192, 203, 0.6);
 }
 
-/* Optional subtle sparkle animation */
-@keyframes sparkle {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-  }
-}
-
-.cute-button::before,
-.next-button::before {
-  animation: sparkle 2s infinite ease-in-out;
-}
-
-
-/* Video Section */
-.video-container {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.birthday-video {
-  width: 80%;
-  max-width: 700px;
-  border-radius: 25px;
-  border: 3px solid transparent;
-  background: linear-gradient(135deg, #ffcce7, #b5eaff, #d4caff, #f5e4ff);
-  background-clip: padding-box;
-  box-shadow: 0 0 40px rgba(255, 210, 255, 0.2);
-  transition: all 0.4s ease;
-}
-
-.birthday-video:hover {
-  box-shadow: 0 0 50px rgba(255, 220, 255, 0.6),
-              0 0 100px rgba(200, 250, 255, 0.3);
-}
-
-/* 🧸 Teddy Login Page */
-.login-page-container {
-  background: linear-gradient(135deg, #fce1ec, #e2f0cb, #c9e4de);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.teddy-container {
-  position: relative;
-  width: 400px;
+/* Birthday Card */
+.birthday-card {
+  position: relative; /* Add this */
+  width: 500px;
+  height: auto; /* Let height adjust */
+  background: linear-gradient(135deg, #ffcce7, #b5eaff);
+  padding: 32px 25px;
+  border-radius: 20px;
+  margin: 5px auto;
+  color: #090808;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.teddy {
-  width: 100%;
-  transition: transform 0.4s ease;
-}
 
-.teddy-container.cover-eyes .teddy {
-  transform: scale(1.05) translateY(-5px);
-  filter: brightness(0.9);
+.birthday-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 182, 193, 0.6);
 }
-
-.login-card {
-  position: absolute;
-  top: 52%;
+.cute-button2 {
+  position: absolute; /* relative to .birthday-card now */
+  bottom: -80px;       /* 20px from bottom of card */
   left: 50%;
-  transform: translate(-50%, -10%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  width: 70%;
-}
-
-.login-card h2 {
-  color: #6b4f4f;
-  margin-bottom: 15px;
-}
-
-.login-card input {
-  width: 90%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 2px solid #dab894;
-  border-radius: 10px;
-  outline: none;
-  font-size: 16px;
-}
-
-.login-card input:focus {
-  border-color: #b5838d;
-  background-color: #fff9f9;
-}
-
-.login-card button {
-  width: 95%;
-  padding: 10px;
-  border: none;
-  background-color: #f4acb7;
-  color: white;
-  font-size: 16px;
-  border-radius: 10px;
+  transform: translateX(-50%);
+  z-index: 10;        /* Make sure it’s on top */
+  padding: 14px 36px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 35px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.login-card button:hover {
-  background-color: #f28482;
-}
-
-.error {
-  color: red;
-  margin-top: 10px;
-  font-size: 14px;
+  background-image: linear-gradient(135deg, #ffcce7, #b5eaff, #d4caff, #f5e4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
 }

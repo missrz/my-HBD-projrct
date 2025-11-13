@@ -1,0 +1,208 @@
+.gift-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #050505, #1a1a1a 90%);
+  overflow: hidden;
+}
+
+/* ✨ Title Glow */
+.gift-title {
+  font-size: 2.8rem;
+  color: #9ef7ff;
+  margin-bottom: 80px;
+  margin-left: 99px;
+  text-shadow: 0 0 15px #00f5d4, 0 0 30px #00f5d4;
+  animation: glowTitle 2.5s ease-in-out infinite alternate;
+}
+@keyframes glowTitle {
+  from {
+    text-shadow: 0 0 10px #00f5d4, 0 0 20px #00f5d4;
+  }
+  to {
+    text-shadow: 0 0 25px #00f5d4, 0 0 50px #00f5d4;
+  }
+}
+
+.balloon-group {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 300px;
+  height: 350px;
+}
+
+/* Balloon wrapper positions */
+.balloon-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.balloon-wrapper:nth-child(1) {
+  left: -47px;
+  top: 32px;
+  transform: rotate(-9deg);
+}
+.balloon-wrapper:nth-child(2) {
+  left: 99px;
+  top: -29px;
+  transform: rotate(-5deg);
+}
+.balloon-wrapper:nth-child(3) {
+  left: 240px;
+  top: -27px;
+  transform: rotate(10deg);
+}
+.balloon-wrapper:nth-child(4) {
+  left: 370px;
+  top: -20px;
+  transform: rotate(10deg);
+}
+
+/* 🌈 Beautiful gradient balloon colours + animation */
+.balloon {
+  width: 90px;
+  height: 120px;
+  background: linear-gradient(
+    145deg,
+    var(--balloon-color),
+    rgba(255, 255, 255, 0.2)
+  );
+  border-radius: 50% 50% 45% 55% / 55% 55% 45% 45%;
+  position: relative;
+  box-shadow: 0 0 25px var(--balloon-color), 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: floatBalloon 3.5s ease-in-out infinite alternate,
+    shimmer 5s linear infinite;
+}
+
+/* 🎈 Floating motion */
+@keyframes floatBalloon {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-18px) rotate(2deg);
+  }
+}
+
+/* ✨ Subtle shimmer on gradient */
+@keyframes shimmer {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Shine reflection */
+.shine {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 18px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+/* The SVG for strings */
+.strings {
+  position: absolute;
+  bottom: 100;
+  left: 110;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* Bow style */
+/* .bow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(10deg);
+  width: 50px;
+  height: 25px;
+  background: radial-gradient(circle, #ff66b2, #ff006e);
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ff3385;
+} */
+
+/* Popped effect */
+.popped .balloon {
+  animation: pop 0.4s ease-out forwards;
+}
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    filter: blur(5px);
+  }
+}
+
+/* Message text after pop */
+.message-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  animation: fadeIn 1s ease forwards;
+  color: #ffb6f9;
+  text-shadow: 0 0 15px #ff5fd8, 0 0 30px #ff5fd8;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Surprise Button */
+.surprise-btn {
+  position: relative;
+  right:-40px;
+  margin-top: 8px;
+  padding: 12px 28px;
+  font-size: 1.3rem;
+  background: linear-gradient(90deg, #ff66b2, #00f5d4);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff66b2, 0 0 30px #00f5d4;
+  transition: all 0.3s ease;
+  animation: fadeIn 1s ease forwards, pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px #00f5d4, 0 0 25px #ff66b2;
+  }
+  100% {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00f5d4, 0 0 45px #ff66b2;
+  }
+}
+
+.surprise-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(90deg, #00f5d4, #ff66b2);
+}

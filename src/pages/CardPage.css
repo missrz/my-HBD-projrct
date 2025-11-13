@@ -1,0 +1,199 @@
+.envelope-scene {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at center, #111, #000);
+  perspective: 1000px;
+}
+
+/* Envelope container */
+.envelope {
+  position: relative;
+  width: 720px; /* ⬆ bigger size */
+  height: 460px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.envelope-text {
+  position: absolute;
+  top: 45%; /* adjust vertically */
+  left: 50%; /* center horizontally */
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 0 0 8px #ff69b4, 0 0 12px #ffb6c1;
+  z-index: 3; /* above body but below flap */
+  pointer-events: none; /* allow clicks to go to envelope */
+  text-align: center;
+}
+
+/* Envelope body */
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 75%;
+  background: linear-gradient(145deg, #ffb6c1, #ff69b4);
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 15px 35px rgba(255, 182, 193, 0.5);
+  z-index: 1;
+}
+
+/* Flap — looks attached to body */
+.envelope-flap {
+  position: absolute;
+  top: 200;
+  left: 50;
+  width: 103%;
+  height: 52%;
+  background: linear-gradient(145deg, #ff8ab0, #ff5f9e);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+  backface-visibility: visible;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* Flap open animation */
+.envelope.open .envelope-flap {
+  transform: rotateX(-160deg);
+}
+.flap-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: black;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1; /* ensure it's below flap but above body */
+  border-radius: 10px 10px 0 0;
+}
+
+.show-shadow {
+  opacity: 0.85;
+}
+
+/* Card inside */
+.card {
+  position: absolute;
+  top:-600px;
+  left: 46%;
+  bottom: 40%;
+  transform: translate(-50%, 40%) scale(0.95);
+  opacity: 0;
+  width: 480px;
+  height: 500px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  padding: 25px;
+  text-align: center;
+  transition: all 1.8s ease;
+  z-index: 5;
+}
+
+/* When envelope opens */
+.envelope.open .card {
+  bottom: 99.9%; /* 👈 card ko neeche laa kar front me le aa */
+  transform: translate(-50%, 112%) scale(1.1) rotateX(0deg);
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+
+/* Button */
+.surprise-btn {
+  position:relative;
+  top:50px;
+  left:30px;
+  margin-top: 30px;
+  padding: 16px 45px;
+  border: 2px solid #ff69b4;
+  border-radius: 40px;
+  background: transparent;
+  color: #ffb6c1;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 0 10px #ff69b4;
+  cursor: pointer;
+  animation: pulseGlow 2s infinite ease-in-out;
+  transition: all 0.4s ease;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px #ff69b4; }
+  50% { box-shadow: 0 0 35px #ff1493; }
+}
+
+
+/* Visible after envelope opens */
+.envelope.open + .surprise-btn {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeIn 1.2s forwards, sparkle 3s infinite ease-in-out 2s;
+}
+
+/* Gradient border shimmer — transparent center guaranteed */
+.surprise-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ffcce7, #b5eaff, #d4caff, #f5e4ff);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  animation: sparkle 3s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
+}
+
+/* Hover effects */
+.surprise-btn:hover::before {
+  box-shadow: 0 0 30px rgba(255, 182, 193, 0.8);
+}
+
+.surprise-btn:hover {
+  color: #fff;
+  background: #ff69b4;
+  box-shadow: 0 0 60px #ff69b4;
+  transform: scale(1.1);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Soft shimmer animation for the border */
+@keyframes sparkle {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(173, 216, 230, 0.7);
+  }
+}

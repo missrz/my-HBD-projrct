@@ -1,12 +1,18 @@
+/* === LoginPage.css === */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  background-color: #f4c531;
+
+html, body, #root {
+  height: 100%;
+  background-color: #100d03;
 }
+
+/* Container (matches <div className="container">) */
 .container {
   height: 31.25em;
   width: 31.25em;
@@ -15,10 +21,12 @@ body {
   top: 50%;
   left: 50%;
 }
-form {
+
+/* ✅ Form styles (make sure to target correctly) */
+.container form {
   width: 23.75em;
   height: 18.75em;
-  background-color: #ffffff;
+  background-color: #ffffff; /* change this to see your effect */
   position: absolute;
   transform: translate(-50%, -50%);
   top: calc(50% + 3.1em);
@@ -28,14 +36,18 @@ form {
   flex-direction: column;
   justify-content: center;
   border-radius: 0.5em;
+  transition: all 0.3s ease; /* so you can see your changes smoothly */
 }
-form label {
+
+/* ✅ Input, Label, Button (all under container form) */
+.container form label {
   display: block;
   margin-bottom: 0.2em;
   font-weight: 600;
   color: #2e0d30;
 }
-form input {
+
+.container form input {
   font-size: 0.95em;
   font-weight: 400;
   color: #3f3554;
@@ -44,25 +56,32 @@ form input {
   border-bottom: 0.12em solid #3f3554;
   outline: none;
 }
-form input:focus {
-  border-color: #f4c531;
+
+.container form input:focus {
+  border-color: #0b0801;
 }
-form input:not(:last-child) {
+
+.container form input:not(:last-child) {
   margin-bottom: 0.9em;
 }
-form button {
+
+.container form button {
   font-size: 0.95em;
-  padding: 0.8em 0;
-  border-radius: 2em;
+  padding: 10px;
+  border-radius: 5em;
   border: none;
   outline: none;
-  background-color: #f4c531;
-  color: #2e0d30;
+  background-color: #000000;
+  color: hsl(0, 15%, 92%);
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.15em;
   margin-top: 0.8em;
+  cursor: pointer;
 }
+
+
+/* Panda Face */
 .panda-face {
   height: 7.5em;
   width: 8.4em;
@@ -75,6 +94,8 @@ form button {
   left: 0;
   right: 0;
 }
+
+/* Ears */
 .ear-l,
 .ear-r {
   background-color: #3f3554;
@@ -93,6 +114,8 @@ form button {
   transform: rotate(38deg);
   right: 10.75em;
 }
+
+/* Blush */
 .blush-l,
 .blush-r {
   background-color: #ff8bb1;
@@ -110,6 +133,8 @@ form button {
   transform: rotate(-25deg);
   right: 1em;
 }
+
+/* Eyes */
 .eye-l,
 .eye-r {
   background-color: #3f3554;
@@ -127,6 +152,8 @@ form button {
   right: 1.37em;
   transform: rotate(20deg);
 }
+
+/* Eyeballs */
 .eyeball-l,
 .eyeball-r {
   height: 0.6em;
@@ -144,6 +171,8 @@ form button {
 .eyeball-r {
   transform: rotate(-20deg);
 }
+
+/* Nose & Mouth */
 .nose {
   height: 1em;
   width: 1em;
@@ -184,6 +213,8 @@ form button {
   position: absolute;
   left: 0.87em;
 }
+
+/* Hands */
 .hand-l,
 .hand-r {
   background-color: #3f3554;
@@ -201,6 +232,8 @@ form button {
 .hand-r {
   right: 7.5em;
 }
+
+/* Paws */
 .paw-l,
 .paw-r {
   background-color: #3f3554;
@@ -240,6 +273,8 @@ form button {
   left: 1.12em;
   box-shadow: 0.87em 0.37em #ffffff, -0.87em 0.37em #ffffff;
 }
+
+/* Responsive */
 @media screen and (max-width: 500px) {
   .container {
     font-size: 14px;

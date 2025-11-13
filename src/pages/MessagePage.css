@@ -1,0 +1,82 @@
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: black;
+  position: relative;
+  flex-direction: column;
+}
+
+.heart-canvas {
+  border: 2px solid #222;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.heart-text {
+  position: absolute;
+  top: 43%;
+  left: 42%;
+  color: #ff4d6d;
+  font-size: 4rem;
+  font-weight: bold;
+  animation: fadeIn 2s ease-in forwards;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 0, 0, 0.5);
+}
+
+/* Button styling */
+.next-btn {
+  margin-top: 30px;
+  background: linear-gradient(90deg, #ff4d6d, #ff99ac);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 35px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 100, 120, 0.6);
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.next-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 100, 120, 0.8);
+}
+.inside-heart {
+  position: absolute;
+  top: 60%; /* Adjust this value slightly to center inside heart */
+  left: 45.5%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg, #ff4d6d, #ff99ac);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 100, 120, 0.6);
+  animation: fadeIn 2s ease-in forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inside-heart:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 100, 120, 0.8);
+}
