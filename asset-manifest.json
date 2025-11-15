@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/my-HBD-projrct/static/css/main.6326f9ed.css",
+    "main.js": "/my-HBD-projrct/static/js/main.2b2fe2bb.js",
+    "index.html": "/my-HBD-projrct/index.html",
+    "main.6326f9ed.css.map": "/my-HBD-projrct/static/css/main.6326f9ed.css.map",
+    "main.2b2fe2bb.js.map": "/my-HBD-projrct/static/js/main.2b2fe2bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6326f9ed.css",
+    "static/js/main.2b2fe2bb.js"
+  ]
+}
